@@ -12,6 +12,7 @@ export default function HomeLogin() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     setError(""); // Clear previous errors
     try {
       const res = await API.post("/auth/login", { email, password });
@@ -25,6 +26,14 @@ export default function HomeLogin() {
       const errorMessage = err.response?.data?.message || "Invalid email or password";
       setError(errorMessage);
       console.error("Login error:", err.response?.data || err.message);
+=======
+    try {
+      const res = await API.post("/auth/login", { email, password });
+      localStorage.setItem("user", JSON.stringify(res.data));
+      navigate("/dashboard");
+    } catch {
+      setError("Invalid email or password");
+>>>>>>> 69b78e7d2eaf9daf94695f345a8c5e058c0592a5
     }
   };
 

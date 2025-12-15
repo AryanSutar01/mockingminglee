@@ -51,4 +51,7 @@ module.exports = async (req, res) => {
   return app(req, res);
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 69b78e7d2eaf9daf94695f345a8c5e058c0592a5

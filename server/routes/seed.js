@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
       description: "HR interview and behavioral questions"
     });
 
-    await Question.insertMany([
+    const questions = await Question.insertMany([
 
       /* ================= APTITUDE (25) ================= */
 

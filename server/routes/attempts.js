@@ -61,8 +61,9 @@ router.get('/:attemptId', async (req, res) => {
     const attempt = await Attempt.findById(req.params.attemptId);
     if (!attempt) return res.status(404).json({ error: 'Not found' });
 
-    const questions = await Question.find({ testId: attempt.testId });
-    res.json({ ...attempt._doc, questions });
+    const questions = await Question.find({ testId: attempt.testId || attempt._doc?.testId });
+    const attemptData = attempt._doc || attempt;
+    res.json({ ...attemptData, questions });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Server error' });
